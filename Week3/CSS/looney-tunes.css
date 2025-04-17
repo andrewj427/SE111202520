@@ -128,3 +128,17 @@ ul {
     background-color: gray;
     text-decoration: none;
 }
+/* styling for character page */
+.characters{
+    text-align: left;
+}
+
+.characters > img{
+    float:left;
+    height:200px
+}
+
+.p-characters{
+    display:inline-block;
+    width: 350px;
+}
