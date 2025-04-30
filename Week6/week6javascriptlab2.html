@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>week 6 keylogs and forms</title>
+    <style>
+        table,tr,td{
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+    <h1>week 6 keyboard events and forms</h1>
+    <input type="text" id="name">
+    <script>
+        var textInput = document.querySelector("#name");
+        textInput.addEventListener("keyup", (event)=>{ //can also use function(){} instead of ()=>{}
+            console.log(event.key)
+            event.target.value = "No you can't type"
+        });
+    </script>
+
+    <h2>javascript and forms demo</h2>
+    <h2>Animal Year Calculator</h2>
+    <form action="">
+        <table>
+            <tr>
+                <td><label for="first">First name</label></td>
+                <td><input type="text" name="first" id="first" placeholder="Type first name..." required></td>
+            </tr>
+            <tr>
+                <td><label for="lasst">Last name</label></td>
+                <td><input type="text" name="last" id="last" placeholder="Type last name..." required></td>
+            </tr>
+            <tr>
+                <td><label for="age">Age</label></td>
+                <td><input type="text" name="age id=age" placeholder="Age..." required></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" value="Get Age!" id="get-age"></td>
+            </tr>
+        </table>
+        <div id="display-info">
+            Your info will be displayed here:
+        </div>
+        <script src="js/script.js"></script>
+    </form>
+</body>
+</html>

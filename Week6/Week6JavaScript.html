@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Week 6 | JavaScript Lab</title>
+    </head>
+    <body>
+        <h1>Week 6 JavaScript Lab</h1>
+        <p></p>
+        <button>Click me!</button>
+        <script>
+            //example of a single line comment
+            /* multi
+            line
+            comment*/
+
+            // example of a variable
+            var firstName = "Andrew";
+            var lastName = "Johnston";
+
+            var fullName = `${firstName} ${lastName}`;
+            // `` (tilde keys) act like f("{var}") in python
+            // alert(fullName) <--displays a popup
+            console.log(fullName);
+
+            // example of a javascript function
+            function outputMessage(tag, message, color){
+                document.querySelector(tag).innerHTML = message;
+                document.querySelector(tag).style.color = color;
+            }
+            
+            //outputMessage("h1", "wouldn't you like to be a pepper too", "#00ff00");
+            outputMessage("p", "i need a coffee", "#0000ff");
+
+            // firstName = prompt("Please enter your name");
+            // console.log(firstName);
+
+            var promptButton = document.querySelector("button");
+            promptButton.addEventListener("click", dataPrompt)
+
+            function dataPrompt(){
+                alert(`Hello my name is ${firstName}, welcome to my program!`)
+                var yourName = prompt("What is your name?");
+                alert(`Hello ${yourName} nice to meet you.`)
+                var yourLast = prompt("What's your last name?");
+                alert(`Your full name is ${yourName} ${yourLast}`)
+
+                let firstNum = prompt("please give me your first number")
+                let secNum = prompt("please give me your second number")
+
+                let result = Number(firstNum) * Number(secNum);
+
+                alert(`this is your result: ${result}`);
+
+                //example of js creating new elements on a page
+                let documentBody = document.querySelector("body");
+                var outputElement = document.createElement("p");
+                var outputData = `your name is ${yourName} ${yourLast}\nThe result of your number is ${result}\nThank you,\n${fullName}`;
+                var outputHTML = `your name is ${yourName} ${yourLast}<br>The result of your number is ${result}<br>Thank you,<br>${fullName}`;
+                console.log(outputData)
+                outputElement.innerHTML = outputHTML;
+                documentBody.appendChild(outputElement);
+            }
+
+        </script>
+    </body>
+
+</html>
