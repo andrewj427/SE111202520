@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 8 lab | collections & loops</title>
+</head>
+
+<body>
+    <h1>Week 8 collections and loops</h1>
+    <p>Click me!</p>
+    <script>
+        var pTag = document.querySelector("p");
+
+        // var currentState = false;
+
+        // pTag.addEventListener("click", function(e){
+
+        //     if(currentState === false){
+        //         console.log("hi");
+        //         currentState = true;
+        //         pTag.innerHTML = "hi";
+
+        //     }
+        //     else{
+        //         console.log("bye");
+        //         currentState = false;
+        //         pTag.innerHTML = "bye";
+        //     }
+        //});
+
+        var currentState = 0;
+
+        var states = [];
+
+        states[0] = function () {
+            console.log("hi");
+            currentState = 1;
+            pTag.innerHTML = "hi";
+        }
+        states[1] = function () {
+            console.log("bye");
+            currentState = 0;
+            pTag.innerHTML = "bye";
+        }
+
+        pTag.addEventListener("click", function (e) {
+            states[currentState]();
+        });
+
+        //simple rock paper scissors game using collections
+
+        var choices = ["rock", "paper", "scissors"];
+        // var playerChoice = Number(prompt(`What number do you pick?\n0: rock\n1: paper\n2:scissors`));
+        var computerchoice = Math.floor(Math.random() * 2.9);
+
+        var outcomes = [
+            ["ties", "loses", "wins"],
+            ["wins", "ties", "loses"],
+            ["loses", "wins", "ties"]
+        ];
+
+        // alert((`Player picked ${choices[playerChoice]} and the computer picked ${choices[computerchoice]}`));
+        // alert(`Player ${outcomes[playerChoice][computerchoice]}`)
+
+        var name = "andrew";
+        console.log(name[3]);
+
+        name = name.toUpperCase();
+        console.log(name);
+
+        var subnet = `255.255.255.0`;
+        var ip = `24.91.221.3`;
+
+        var sbnOctets = subnet.split(".");
+        var ipOctets = ip.split(".")
+
+        function getParts(_sub, _ip, _netOrClient) {
+            var network = ``;
+
+            if (_sub[0] === _netOrClient) {
+                network += _ip[0] + ".";
+            }
+            if (_sub[1] === _netOrClient) {
+                network += _ip[1] + ".";
+            }
+            if (_sub[2] === _netOrClient) {
+                network += _ip[2] + ".";
+            }
+            if (_sub[3] === _netOrClient) {
+                network += _ip[3] + ".";
+            }
+            return network.substring(0, network.length - 1)
+        }
+
+        var network = getParts(sbnOctets, ipOctets, `255`);
+        var host = getParts(sbnOctets, ipOctets, `0`)
+
+        console.log(`Network: ${network}`)
+        console.log(`Host: ${host}`)
+
+        var person = {
+            firstName: "Andrew",
+            lastName: "Johnston",
+            age: 20,
+            sayname: function () {
+                return `Hi my name is ${this.firstName} ${this.lastName}`
+            }
+        }
+        console.log(person.firstName, person.lastName, person.age)
+        console.log(person.sayname())
+
+
+        for (var i = 0; i < person.firstName.length; i++) {
+            console.log(person.firstName[i])
+        }
+    </script>
+</body>
+
+</html>
