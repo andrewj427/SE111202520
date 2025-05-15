@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objects, Collections,and Loops</title>
+</head>
+<body>
+    <h1>Objects, Collections, and Loops Part 2</h1>
+
+    <script>
+        //another way to create an array
+        var movies = new Array();
+
+        movies[0] = "Spider-Man";
+        movies[1] = "Spirited Away";
+        movies[2] = "Avengers";
+        movies[3] = "Conjuring";
+        movies[4] = "Singles";
+        movies[5] = "Minions";
+        movies[6] = "Minecraft";
+
+        console.log(movies);
+        console.log(movies[2]);
+
+        var page = document.querySelector('body');
+
+        //basic for loop
+        for(let i = 0; i<movies.length; i++){
+            //outputs to console
+            console.log(movies[i]);
+            //outputs to page
+            page.innerHTML += `<p>${movies[i]}</p>`;
+        }
+
+        var movieCategories = [
+            "Superhero Movie", 
+            "Animated Film",
+            "Superhero Movie",
+            "Horror Movie",
+            "Romance Comedy",
+            "Animated Film",
+            "Kids Film"
+        ];
+
+        //parallel array example
+
+        for(let i = 0; i<movies.length; i++){
+            console.log(`movie: ${movies[i]}, Category: ${movieCategories[i]}`);
+        }
+
+        //2 dimensional arrays
+        var moviesAndCategory = [];
+        moviesAndCategory[0] = movies;
+        moviesAndCategory[1] = movieCategories;
+
+        for(let i = 0; i<movies.length; i++){
+            page.innerHTML += `<p>Movies: ${moviesAndCategory[0][i]}, Categories: ${moviesAndCategory[1][i]}</p>`
+        }
+
+        //Associative Arrays
+
+        var sportsTeams = [];
+
+        sportsTeams["Baseball"] = "red sox";
+        sportsTeams["Basketball"] = "celtics";
+        sportsTeams["Football"] = "patriots";
+        sportsTeams["Hockey"] = "bruins";
+
+        console.log(sportsTeams["Hockey"]);
+
+        // JS object notation examples
+        var celticsPlayer1 = {
+            playername:"Jayson Tatum",
+            position:"Forward",
+            number:0,
+            sayhello:function(){
+                return `Hello, I am ${this.playername} and I play ${this.position}.`;
+            }
+        }
+
+        var celticsPlayer2 = {
+            playername:"Jaylen Brown",
+            position:"forward",
+            number:7,
+            sayhello:function(){
+                return `Hello, I am ${this.playername} and I play ${this.position}.`;
+            }
+        }
+
+        var celticsPlayer3 = {
+            playername:"Kristaps Porzingas",
+            position:"center",
+            number:8,
+            sayhello:function(){
+                return `Hello, I am ${this.playername} and I play ${this.position}.`;
+            }
+        }
+
+        var celticsPlayer4 = {
+            playername:"Jrue Holliday",
+            position:"guard",
+            number:4,
+            sayhello:function(){
+                return `Hello, I am ${this.playername} and I play ${this.position}.`;
+            }
+        }
+
+        var celticsPlayer5 = {
+            playername:"Dereck White",
+            position:"guard",
+            number:9,
+            sayhello:function(){
+                return `Hello, I am ${this.playername} and I play ${this.position}.`;
+            }
+        }
+
+        var players = [
+            celticsPlayer1, 
+            celticsPlayer2,
+            celticsPlayer3,
+            celticsPlayer4,
+            celticsPlayer5
+        ];
+
+        //ecample of forEach loop
+        players.forEach(function(item, player){
+            console.log(item.playername, item.position, item.number);
+        });
+        console.log(celticsPlayer1.sayhello());
+
+
+        //example of forIn loop
+        for(let key in players){
+            page.innerHTML += `<p>Player: ${players[key].playername}, position: ${players[key].position}, number: ${players[key].number}</p>`;
+        }
+    </script>
+</body>
+</html>
