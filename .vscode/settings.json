@@ -1,0 +1,4 @@
+{
+    "python.analysis.completeFunctionParens": true,
+    "js/ts.implicitProjectConfig.strictFunctionTypes": true
+}
